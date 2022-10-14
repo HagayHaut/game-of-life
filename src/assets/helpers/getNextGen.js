@@ -31,9 +31,8 @@ export const getNextGen = (civilization) => {
         const liveNeighbors = getLiveNeighbors(r, c);
         if (civilization[r][c]) {
             return liveNeighbors > 1 && liveNeighbors < 4;
-        } else {
-            return liveNeighbors === 3;
         }
+        return liveNeighbors === 3;
     };
 
     for (let r = 0; r < 21; r++) {
