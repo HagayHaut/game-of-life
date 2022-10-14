@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { getNextGen } from "../assets/helpers/getNextGen.js";
 import Cell from "./Cell";
 
+const WIDTH = 40;
+const HEIGHT = 30;
+
 function Board() {
-    const initialCiv = Array(21)
+    const initialCiv = Array(HEIGHT)
         .fill()
-        .map((_, r) => Array(21).fill(false));
+        .map((_, r) => Array(WIDTH).fill(false));
 
     const [civizilation, setCivilization] = useState(initialCiv);
 

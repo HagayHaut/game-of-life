@@ -1,9 +1,11 @@
 export const getNextGen = (civilization) => {
-    const nextGen = Array(21)
+    const m = civilization.length;
+    const n = civilization[0].length;
+    const nextGen = Array(m)
         .fill()
-        .map(() => Array(21));
+        .map(() => Array(n));
 
-    const isIB = (r, c) => r >= 0 && c >= 0 && r < 21 && c < 21;
+    const isIB = (r, c) => r >= 0 && c >= 0 && r < m && c < n;
 
     const directions = [
         [1, 0],
@@ -35,8 +37,8 @@ export const getNextGen = (civilization) => {
         return liveNeighbors === 3;
     };
 
-    for (let r = 0; r < 21; r++) {
-        for (let c = 0; c < 21; c++) {
+    for (let r = 0; r < m; r++) {
+        for (let c = 0; c < n; c++) {
             nextGen[r][c] = nextCell(r, c);
         }
     }
