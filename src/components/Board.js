@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getNextGen } from "../assets/helpers/getNextGen.js";
 import Cell from "./Cell";
 
 function Board() {
@@ -18,6 +19,10 @@ function Board() {
         setCivilization(copy);
     };
 
+    const handleNextGenClick = () => {
+        const nextGen = getNextGen(civizilation);
+    };
+
     const displayCiv = civizilation.map((civRow, r) => {
         return (
             <div className="flex" key={r}>
@@ -33,7 +38,14 @@ function Board() {
         );
     });
 
-    return <div>{displayCiv}</div>;
+    return (
+        <div>
+            <div>{displayCiv}</div>
+            <button className="m-1" onClick={handleNextGenClick}>
+                Next Generation
+            </button>
+        </div>
+    );
 }
 
 export default Board;
