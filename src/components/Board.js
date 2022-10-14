@@ -5,11 +5,7 @@ import Cell from "./Cell";
 function Board() {
     const initialCiv = Array(21)
         .fill()
-        .map((_, r) =>
-            Array(21)
-                .fill()
-                .map((_, c) => (r === 10 && c === 10 ? true : false))
-        );
+        .map((_, r) => Array(21).fill(false));
 
     const [civizilation, setCivilization] = useState(initialCiv);
 
@@ -42,9 +38,14 @@ function Board() {
     return (
         <div>
             <div>{displayCiv}</div>
-            <button className="m-1" onClick={handleNextGenClick}>
-                Next Generation
-            </button>
+            <div className="w-96 flex justify-between">
+                <button className="m-1" onClick={handleNextGenClick}>
+                    Next Generation
+                </button>
+                <button onClick={() => setCivilization(initialCiv)}>
+                    Kill All
+                </button>
+            </div>
         </div>
     );
 }
