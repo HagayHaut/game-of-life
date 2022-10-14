@@ -1,11 +1,12 @@
 import React from "react";
 
-function Cell({ alive }) {
+function Cell({ alive, coors, onCellClick }) {
     return (
         <div
             className={`w-5 h-5 border border-black ${
                 alive ? "bg-cyan-300" : null
-            } m-px`}
+            }`}
+            onClick={() => onCellClick(...coors)}
         />
     );
 }
