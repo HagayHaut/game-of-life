@@ -33,7 +33,7 @@ function Board() {
         );
     });
 
-    return <div className="grid">{displayCiv}</div>;
+    return <div>{displayCiv}</div>;
 }
 
 export default Board;
