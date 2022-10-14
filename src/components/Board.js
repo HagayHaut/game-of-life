@@ -21,6 +21,7 @@ function Board() {
 
     const handleNextGenClick = () => {
         const nextGen = getNextGen(civizilation);
+        setCivilization(nextGen);
     };
 
     const displayCiv = civizilation.map((civRow, r) => {
